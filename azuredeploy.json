@@ -170,7 +170,7 @@
               "lun": 5,
               "caching": "None",
               "createOption": "Empty",
-              "diskSizeGB": 128
+              "diskSizeGB": 64
             },
             {
               "lun": 6,
