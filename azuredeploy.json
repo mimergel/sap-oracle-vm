@@ -9,7 +9,7 @@
         "description": "Resource Group Name"
       }
     },
-      "Location": {
+      "rgLocation": {
       "type": "string",
       "defaultValue": "westeurope",
       "metadata": {
@@ -368,7 +368,7 @@
       "type": "Microsoft.Resources/resourceGroups",
       "apiVersion": "2019-10-01",
       "name": "[parameters('rgName')]",
-      "location": "[parameters('Location')]",
+      "location": "[parameters('rgLocation')]",
       "tags": {"CostCenter": "[parameters('CostCenter')]"},
       "properties": {}
     },
@@ -376,7 +376,7 @@
       "type": "Microsoft.Network/networkSecurityGroups",
       "name": "[concat(variables('nsgName'))]",
       "apiVersion": "2018-10-01",
-      "location": "[parameters('location')]",
+      "location": "[parameters('rgLocation')]",
       "tags": {"CostCenter": "[parameters('CostCenter')]"},
       "condition": "[equals(length(parameters('subnetId')), 0)]",
       "properties": {
@@ -387,7 +387,7 @@
       "type": "Microsoft.Network/virtualNetworks",
       "name": "[variables('vnetName')]",
       "apiVersion": "2018-10-01",
-      "location": "[parameters('location')]",
+      "location": "[parameters('rgLocation')]",
       "tags": {"CostCenter": "[parameters('CostCenter')]"},
       "dependsOn": [
         "[concat('Microsoft.Network/networkSecurityGroups/', variables('nsgName'))]"
@@ -420,7 +420,7 @@
       "dependsOn": [
         "[concat('Microsoft.Network/virtualNetworks/', variables('vnetName'))]"
       ],
-      "location": "[parameters('location')]",
+      "location": "[parameters('rgLocation')]",
       "tags": {"CostCenter": "[parameters('CostCenter')]"},
       "properties": {
         "publicIPAllocationMethod": "Dynamic"
@@ -434,7 +434,7 @@
         "[concat('Microsoft.Network/virtualNetworks/', variables('vnetName'))]",
         "[concat('Microsoft.Network/publicIPAddresses/', variables('publicIpName'))]"
       ],
-      "location": "[parameters('location')]",
+      "location": "[parameters('rgLocation')]",
       "tags": {"CostCenter": "[parameters('CostCenter')]"},
       "properties": {
         "ipConfigurations": [
@@ -460,7 +460,7 @@
       ],
       "zones": "[variables('selectedZones')]",
       "apiVersion": "2018-10-01",
-      "location": "[parameters('location')]",
+      "location": "[parameters('rgLocation')]",
       "tags": {"CostCenter": "[parameters('CostCenter')]"},
       "properties": {
         "hardwareProfile": {
@@ -502,7 +502,7 @@
       "type": "Microsoft.Compute/virtualMachines/extensions",
       "name": "[concat(variables('vmName'), '/', variables('csExtension')[variables('internalOSType')].Name)]",
       "apiVersion": "2018-10-01",
-      "location": "[parameters('location')]",
+      "location": "[parameters('rgLocation')]",
       "tags": {"CostCenter": "[parameters('CostCenter')]"},
       "dependsOn": [
         "[concat('Microsoft.Compute/virtualMachines/', variables('vmName'))]"
