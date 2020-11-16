@@ -2,13 +2,27 @@
   "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
+      "rgName": {
+      "type": "string",
+      "defaultValue": "rg-sap-sid-euw",
+      "metadata": {
+        "description": "Resource Group Name"
+      }
+    },
+      "Location": {
+      "type": "string",
+      "defaultValue": "westeurope",
+      "metadata": {
+        "description": "Location for all resources"
+      }
+    },
     "sapSystemId": {
       "type": "string",
       "maxLength": 3,
       "minLength": 3,
       "defaultValue": "ORA",
       "metadata": {
-        "description": "SAP System ID."
+        "description": "SAP System ID"
       }
     },
     "osType": {
@@ -82,13 +96,6 @@
       "maxValue": 3,
       "metadata": {
         "description": "Zone number. Set to 0 if you do not want to use Availability Zones"
-      }
-    },
-    "location": {
-      "type": "string",
-      "defaultValue": "[resourceGroup().location]",
-      "metadata": {
-        "description": "Location for all resources."
       }
     },
     "CostCenter": {
@@ -357,6 +364,14 @@
     "selectedSubnetId": "[variables('subnets')[string(equals(length(parameters('subnetId')), 0))]]"
   },
   "resources": [
+    {
+      "type": "Microsoft.Resources/resourceGroups",
+      "apiVersion": "2019-10-01",
+      "name": "[parameters('rgName')]",
+      "location": "[parameters('Location')]",
+      "tags": {"CostCenter": "[parameters('CostCenter')]"},
+      "properties": {}
+    },
     {
       "type": "Microsoft.Network/networkSecurityGroups",
       "name": "[concat(variables('nsgName'))]",
