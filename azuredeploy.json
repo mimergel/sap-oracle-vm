@@ -165,13 +165,13 @@
               "lun": 3,
               "caching": "ReadOnly",
               "createOption": "Empty",
-              "diskSizeGB": 1024
+              "diskSizeGB": 256
             },
             {
               "lun": 4,
               "caching": "ReadOnly",
               "createOption": "Empty",
-              "diskSizeGB": 1024
+              "diskSizeGB": 256
             },
             {
               "lun": 5,
@@ -206,24 +206,24 @@
               "lun": 1,
               "caching": "None",
               "createOption": "Empty",
-              "diskSizeGB": 64
+              "diskSizeGB": 2
             },            {
               "lun": 2,
               "caching": "None",
               "createOption": "Empty",
-              "diskSizeGB": 64
+              "diskSizeGB": 2
             },
             {
               "lun": 3,
               "caching": "ReadOnly",
               "createOption": "Empty",
-              "diskSizeGB": 256
+              "diskSizeGB": 512
             },
             {
               "lun": 4,
               "caching": "ReadOnly",
               "createOption": "Empty",
-              "diskSizeGB": 256
+              "diskSizeGB": 512
             },
             {
               "lun": 5,
@@ -258,24 +258,24 @@
               "lun": 1,
               "caching": "None",
               "createOption": "Empty",
-              "diskSizeGB": 64
+              "diskSizeGB": 4
             },            {
               "lun": 2,
               "caching": "None",
               "createOption": "Empty",
-              "diskSizeGB": 64
+              "diskSizeGB": 4
             },
             {
               "lun": 3,
               "caching": "ReadOnly",
               "createOption": "Empty",
-              "diskSizeGB": 512
+              "diskSizeGB": 1024
             },
             {
               "lun": 4,
               "caching": "ReadOnly",
               "createOption": "Empty",
-              "diskSizeGB": 512
+              "diskSizeGB": 1024
             },
             {
               "lun": 5,
