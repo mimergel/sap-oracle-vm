@@ -3,10 +3,25 @@
   "contentVersion": "1.0.0.0",
   "parameters": {
     "adminUsername": {
-      "value": "GEN-UNIQUE"
+      "value": "someuser"
+    },
+    "sapSystemId": {
+      "value": "OLI"
+    },
+    "sapSystemSize": {
+      "value": "Small"
+    },
+    "location": {
+      "value": "westeurope"
+    },
+    "osType": {
+      "value": "Oracle Linux 7"
     },
     "adminPasswordOrKey": {
-      "value": "GEN-PASSWORD"
+      "value": "..."
+    },
+    "subnetId": {
+      "value": "..."
     }
   }
 }
